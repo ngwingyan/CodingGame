@@ -80,7 +80,7 @@ li:nth-child(odd) {
   display: none;
 }
 
-.start {
+.display {
   text-align: center;
 }
 
@@ -92,11 +92,8 @@ li:nth-child(odd) {
 
 .feedback {
   font-style: italic;
-  font-size: 120%;
-  margin-top: 20px;
-  padding-top: 10px;
-  color: gray;
-  border-top: 2px solid #ccc;
+  font-size: 100%;
+  position: absolute;
 }
 
 .timer {
@@ -105,20 +102,3 @@ li:nth-child(odd) {
   right: 10px;
 }
 
-
-
-.question_page {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: left;
-}
-
-/*display only the intro page and hide the rest sections*/
-.question_page,
-.submit_page,
-.highscore_page,
-#check_line {
-  display: none;
-}
