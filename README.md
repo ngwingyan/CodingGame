@@ -20,6 +20,9 @@ To test Javascript knowledge with a timed quiz of 8 questions and compare the sc
 - High score screen - display scores for each user in descending order
 ![screenshot](./assets/image/highscores.png)
 
+## Technology used
+- Javascript (for loop, if else, setInterval, clearInterval), HTML, CSS
+
 ## License
 Please refer to the license in the repository.
 
