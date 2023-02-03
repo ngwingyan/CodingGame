@@ -103,7 +103,7 @@ function checkAnswer(selectedoption) {
 
   var currentQuestion = quizQuestions[currentQuestionNumber];
 
-    // If answer is correct
+  // If answer is correct
   if (selectedoption.target.value === currentQuestion.correctAnswer) {
     // Correct answer feedback
     feedbackElement.textContent = "Correct!";
@@ -124,22 +124,22 @@ function checkAnswer(selectedoption) {
 
   }
 
-    // To flash the feedback
-    feedbackElement.setAttribute("class", "feedback");
-    setTimeout(function () {
-      feedbackElement.setAttribute("class", "feedback hide");
-    }, 1000);
+  // To flash the feedback
+  feedbackElement.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackElement.setAttribute("class", "feedback hide");
+  }, 1000);
 
-    // Next question
-    currentQuestionNumber = currentQuestionNumber + 1;
+  // Next question
+  currentQuestionNumber = currentQuestionNumber + 1;
 
-    // Show next question until last question, then trigger end quiz function
-    if (currentQuestionNumber < quizQuestions.length) {
-      showQuestion();
-    } else {
-      clearInterval(timer);
-      quizEnd();
-    }
+  // Show next question until last question, then trigger end quiz function
+  if (currentQuestionNumber < quizQuestions.length) {
+    showQuestion();
+  } else {
+    clearInterval(timer);
+    quizEnd();
+  }
 }
 
 // Function - End Quiz
@@ -166,29 +166,31 @@ function saveHighscore() {
   var currentInitials = initialsElement.value.trim();
 
   // Get saved scores from localstorage, or if empty, set to empty array
-  if (currentInitials !== "") {
-  // Change JSON string to javascript array
-    currentScoreList = JSON.parse(localStorage.getItem("highscoreslist"))
-  }
-  else {
-    currentScoreList = [];
+
+    var currentScoresList = localStorage.getItem("highscores");
+    var allScoresArray;
+
+    if (currentScoresList === null) {
+      allScoresArray = [];
+    } else {
+      allScoresArray = JSON.parse(currentScoresList);
+    }
+
+    // Format new score object for current user
+    var newUserScore = {
+      score: timercount,
+      initials: currentInitials
+    }
+
+    allScoresArray.push(newUserScore);
+
+    var newScoresString = JSON.stringify(allScoresArray);
+    localStorage.setItem("highscores", newScoresString);
+
+    // Redirect to next page
+    location.href = "highscores.html";
   };
 
-  // Format new score object for current user
-  var newUserScore = {
-    score: timercount,
-    initials: currentInitials
-  };
-
-  // Add current user score object to javascript array
-  currentScoreList.push(newUserScore);
-  // Change the new javascript array to JSON string and save to local storage
-  localStorage.setItem("highscoreslist", JSON.stringify(currentScoreList));
-
-  // Redirect to next page
-  location.href = "highscores.html";
-
-};
 
 //Event listener button - to submit initials and trigger save high score function
 submitButton.addEventListener("click", saveHighscore);

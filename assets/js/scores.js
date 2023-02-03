@@ -5,16 +5,16 @@
 function printHighscores() {
 
     // Get scores from local storage, if empty result, set to empty array
-    var currentScoreList = localStorage.getItem("highscoreslist");
-    if (currentScoreList == null) {
-        currentScoreList = [];
+    var ScoreList = localStorage.getItem("highscores");
+    if (ScoreList == null) {
+        ScoreList = [];
     }
     else {
-        currentScoreList = JSON.parse(localStorage.getItem("highscoreslist"))
+        ScoreList = JSON.parse(localStorage.getItem("highscores"))
     };
 
     // Sort the result in descending order of score
-    var sortedScoreList = currentScoreList.sort(function (a, b) {
+    var sortedScoreList = ScoreList.sort(function (a, b) {
         return b.score - a.score;
     });
 
@@ -24,7 +24,7 @@ function printHighscores() {
         var li = document.createElement("li");
         li.textContent = item.initials + " - " + item.score;
         li.setAttribute("data-index", i);
-        var olElement = document.getElementById("highscoreslist");
+        var olElement = document.getElementById("highscores");
         olElement.appendChild(li);
     };
 
