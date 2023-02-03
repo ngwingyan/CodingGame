@@ -24,5 +24,5 @@ To test Javascript knowledge with a timed quiz of 8 questions and compare the sc
 Please refer to the license in the repository.
 
 ## Link
-- Repoistory URL - https://github.com/ngwingyan/CodingGame
+- Repository URL - https://github.com/ngwingyan/CodingGame
 - Deployed URL - https://ngwingyan.github.io/CodingGame/
