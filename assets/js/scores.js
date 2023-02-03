@@ -1,4 +1,3 @@
-
 //Function - to print highscores
     // to print scores in a list on the page from local storage 
 
