@@ -13,14 +13,6 @@ body {
   align-items: center;
 }
 
-main {
-  text-align: center;
-  justify-content: center;
-  flex: 1 0 auto;
-  margin-left:200px;
-  margin-right:200px;
-}
-
 a {
   color: #563d7c;
   text-decoration: none;
@@ -91,7 +83,7 @@ li:nth-child(odd) {
 }
 
 .feedback {
-  font-style: italic;
+  font-weight: bold;
   font-size: 100%;
   position: absolute;
 }

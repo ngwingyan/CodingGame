@@ -1,41 +1,45 @@
-// print highscores function - to print scores in a list on the page from local storage 
+
+//Function - to print highscores
+    // to print scores in a list on the page from local storage 
 
 function printHighscores() {
-    
-    // Get scores from local storage, if empty, set to empty array
-    var list = localStorage.getItem("highscores");
-    if (list == null) {
-        scoreRecord = [];
+
+    // Get scores from local storage, if empty result, set to empty array
+    var currentScoreList = localStorage.getItem("highscoreslist");
+    if (currentScoreList == null) {
+        currentScoreList = [];
     }
     else {
-        scoreRecord = JSON.parse(list);
-    }
+        currentScoreList = JSON.parse(localStorage.getItem("highscoreslist"))
+    };
 
-    // sort the result in descending order
-    scoreRecord.sort(function (a, b) {
+    // Sort the result in descending order of score
+    var sortedScoreList = currentScoreList.sort(function (a, b) {
         return b.score - a.score;
     });
 
-    // display score on highscore page using for loop
-    for (var i = 0; i < scoreRecord.length; i++) {
-        var score = scoreRecord[i];
+    // Display score on highscore page using for loop
+    for (var i = 0; i < sortedScoreList.length; i++) {
+        var item = sortedScoreList[i];
         var li = document.createElement("li");
-        li.textContent = score.initials + " - " + score.score;
+        li.textContent = item.initials + " - " + item.score;
         li.setAttribute("data-index", i);
-        var olElement = document.getElementById("highscores");
+        var olElement = document.getElementById("highscoreslist");
         olElement.appendChild(li);
-}};
+    };
+
+};
 
 
-// clear high scores function - click on clear button to clear scores in local storage
+// Function - to clear high scores
 function clearHighscores() {
     localStorage.clear();
     location.reload();
 };
 
-// clicking the clear button to trigger clear highscores function
+// Event listener button - click the clear button to trigger clear highscores function
 var clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", clearHighscores);
 
-// ensure print highscores function runs whenever the page loads
+// Ensure print highscores function runs whenever the page loads
 printHighscores();

@@ -3,12 +3,12 @@ var quizQuestions = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
     choices: [
-      "A. <javascript>",
-      "B. <js>",
-      "C. <scripting>",
-      "D. <script>"
+      "A. javascript",
+      "B. js",
+      "C. scripting",
+      "D. script"
     ],
-    correctAnswer: "D. <script>"
+    correctAnswer: "D. script"
   },
   {
     question: "How to write an IF statement in JavaScript?",
